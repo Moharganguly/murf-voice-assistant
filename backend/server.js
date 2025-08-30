@@ -206,9 +206,12 @@ process.on('SIGINT', () => {
   });
 });
 
+// ✅ Dynamic Port for Render Deployment
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Murf Voice Assistant running on port ${PORT}`);
   console.log('Features: WebSocket Streaming, AI Dubbing, Multi-language TTS');
-  console.log('Open http://localhost:3000 in your browser');
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
+
+module.exports = server;
