@@ -30,10 +30,12 @@ const upload = multer({
 });
 
 app.use(cors());
-app.use(express.static('frontend'));
 app.use(express.json());
 
-// Root route
+// ✅ FIXED: Serve static files from frontend directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// ✅ FIXED: Root route serves index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
@@ -196,6 +198,11 @@ io.on('connection', async (socket) => {
   });
 });
 
+// ✅ FIXED: Catch-all route for client-side routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
 // Cleanup on server shutdown
 process.on('SIGINT', () => {
   console.log('Shutting down server...');
@@ -212,6 +219,7 @@ server.listen(PORT, () => {
   console.log(`Murf Voice Assistant running on port ${PORT}`);
   console.log('Features: WebSocket Streaming, AI Dubbing, Multi-language TTS');
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Serving static files from: ${path.join(__dirname, '../frontend')}`);
 });
 
 module.exports = server;
