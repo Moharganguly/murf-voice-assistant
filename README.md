@@ -6,7 +6,7 @@ A modern, dark-themed AI Voice Assistant built with **Murf APIs** featuring real
 ![Murf API](https://img.shields.io/badge/Murf-API%20Integration-green)
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-brightgreen)
 ![Socket.IO](https://img.shields.io/badge/Socket.IO-Real--time-red)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)]([https://voice-ai-assistant-n14h.onrender.com](https://murf-voice-assistant-1.onrender.com/))
+[![Live Demo]]([https://voice-ai-assistant-n14h.onrender.com](https://murf-voice-assistant-1.onrender.com/))
 
 ## ✨ Features
 
